@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>M Naufal Azaqi – Frontend Web Developer & Content Creator</title>
+<meta name="description" content="Portfolio of M Naufal Azaqi, a frontend web developer and content creator based in Lampung, Indonesia.">
+<meta name="color-scheme" content="dark">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E⚡%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com/3.4.17"></script>
+<script>
+tailwind.config = { theme: { extend: { fontFamily: {
+  display: ['"Bricolage Grotesque"', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+  mono: ['"IBM Plex Mono"', 'ui-monospace', 'SFMono-Regular', 'monospace'] } } } };
+</script>
+<style>
+  :root { box-sizing: border-box; padding-top: env(safe-area-inset-top, 0px); padding-bottom: env(safe-area-inset-bottom, 0px); color-scheme: dark; }
+  html { scroll-padding-top: calc(env(safe-area-inset-top, 0px) + 5rem); }
+  body { background: #09090b; font-family: 'Bricolage Grotesque', ui-sans-serif, system-ui, sans-serif; }
+  body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); background: rgba(9,9,11,.85); backdrop-filter: blur(12px); z-index: 60; }
+  ::selection { background: #10b981; color: #022c22; }
+  .grid-bg { background-image: linear-gradient(to right, rgba(255,255,255,.04) 1px, transparent 1px), linear-gradient(to bottom, rgba(255,255,255,.04) 1px, transparent 1px); background-size: 56px 56px; -webkit-mask-image: linear-gradient(to bottom, #000 30%, transparent 95%); mask-image: linear-gradient(to bottom, #000 30%, transparent 95%); }
+  /* the one memorable moment: a Dynamic Island-style pill that expands on interaction */
+  .island { transition: width .5s cubic-bezier(.2,.8,.2,1), height .5s cubic-bezier(.2,.8,.2,1), border-radius .5s cubic-bezier(.2,.8,.2,1); }
+  .island .more { opacity: 0; transition: opacity .25s ease; }
+  .island[data-open="true"] .more { opacity: 1; transition-delay: .2s; }
+  .card:hover .glow { opacity: 1; }
+  @media (prefers-reduced-motion: reduce) { * { transition-duration: .01ms !important; animation-duration: .01ms !important; scroll-behavior: auto !important; } }
+</style>
+</head>
+<body class="text-zinc-300 antialiased">
+
+<a href="#main" class="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-[70] focus:rounded-md focus:bg-emerald-400 focus:px-3 focus:py-2 focus:text-zinc-950">Skip to content</a>
+
+<!-- NAVBAR -->
+<header class="sticky top-0 z-50 border-b border-zinc-800/80 bg-zinc-950/80 backdrop-blur-md" style="top: env(safe-area-inset-top, 0px)">
+  <nav class="mx-auto flex max-w-6xl items-center justify-between gap-4 px-5 py-3.5" aria-label="Main">
+    <a href="#top" class="font-display text-lg font-extrabold tracking-tight text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-400 rounded">naufal<span class="text-emerald-400">.</span>dev</a>
+    <ul class="hidden items-center gap-1 md:flex">
+      <li><a class="rounded-md px-3 py-2 text-sm text-zinc-400 transition-colors hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-400" href="#about">About</a></li>
+      <li><a class="rounded-md px-3 py-2 text-sm text-zinc-400 transition-colors hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-400" href="#projects">Projects</a></li>
+      <li><a class="rounded-md px-3 py-2 text-sm text-zinc-400 transition-colors hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-400" href="#skills">Skills</a></li>
+      <li><a class="rounded-md px-3 py-2 text-sm text-zinc-400 transition-colors hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-400" href="#contact">Contact</a></li>
+    </ul>
+    <div class="flex items-center gap-3">
+      <span class="hidden items-center gap-2 rounded-full border border-emerald-500/30 bg-emerald-500/10 px-3 py-1.5 font-mono text-xs text-emerald-300 sm:inline-flex">
+        <span class="relative flex h-2 w-2"><span class="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-60"></span><span class="relative inline-flex h-2 w-2 rounded-full bg-emerald-400"></span></span>
+        Available for freelance work
+      </span>
+      <button id="menuBtn" class="rounded-md border border-zinc-800 p-2 text-zinc-300 transition-colors hover:border-zinc-600 focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-400 md:hidden" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
+    </div>
+  </nav>
+  <div id="mobileMenu" class="hidden border-t border-zinc-800 bg-zinc-950/95 px-5 py-3 md:hidden">
+    <a class="block rounded-md px-2 py-3 text-zinc-300 hover:bg-zinc-900" href="#about">About</a>
+    <a class="block rounded-md px-2 py-3 text-zinc-300 hover:bg-zinc-900" href="#projects">Projects</a>
+    <a class="block rounded-md px-2 py-3 text-zinc-300 hover:bg-zinc-900" href="#skills">Skills</a>
+    <a class="block rounded-md px-2 py-3 text-zinc-300 hover:bg-zinc-900" href="#contact">Contact</a>
+    <p class="mt-2 flex items-center gap-2 px-2 py-2 font-mono text-xs text-emerald-300"><span class="h-2 w-2 rounded-full bg-emerald-400"></span>Available for freelance work</p>
+  </div>
+</header>
+
+<main id="main">
+<!-- HERO -->
+<section id="top" class="relative overflow-hidden">
+  <div class="grid-bg pointer-events-none absolute inset-0" aria-hidden="true"></div>
+  <div class="relative mx-auto grid max-w-6xl gap-12 px-5 pb-20 pt-16 sm:pt-24 lg:grid-cols-12 lg:gap-8 lg:pb-28">
+    <div class="lg:col-span-8">
+      <p class="font-mono text-sm text-zinc-500">M Naufal Azaqi · Lampung, Indonesia</p>
+      <h1 class="mt-5 font-display text-[2.75rem] font-extrabold leading-[0.98] tracking-tight text-white sm:text-6xl lg:text-[5.5rem]">
+        Frontend Web Developer <span class="text-zinc-500">&amp; Content Creator</span>
+      </h1>
+      <p class="mt-7 max-w-xl text-lg leading-relaxed text-zinc-400">
+        Building high-performance web applications, custom digital tools, and immersive frontend experiences with clean code.
+      </p>
+      <div class="mt-9 flex flex-wrap gap-3">
+        <a href="#projects" class="inline-flex items-center gap-2 rounded-lg bg-emerald-400 px-5 py-3 font-semibold text-zinc-950 transition-all duration-300 hover:bg-emerald-300 hover:shadow-[0_0_30px_-4px_rgba(52,211,153,.6)] focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-300 focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950 active:scale-95">Explore Work</a>
+        <a href="#contact" class="inline-flex items-center gap-2 rounded-lg border border-zinc-700 px-5 py-3 font-semibold text-white transition-all duration-300 hover:border-emerald-400/60 hover:bg-zinc-900 focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-400 active:scale-95">Get in Touch</a>
+      </div>
+    </div>
+
+    <!-- Interactive island -->
+    <div class="flex flex-col items-start lg:col-span-4 lg:items-end lg:justify-end">
+      <button id="island" class="island group relative overflow-hidden border border-zinc-800 bg-black text-left shadow-[0_20px_60px_-20px_rgba(16,185,129,.35)] focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-400" style="width:180px;height:44px;border-radius:9999px" data-open="false" aria-expanded="false" aria-label="Toggle island preview">
+        <span class="absolute left-4 top-[14px] flex items-center gap-2 font-mono text-xs text-emerald-300"><span class="h-2 w-2 rounded-full bg-emerald-400"></span><span id="islandLabel">now building</span></span>
+        <span class="more absolute inset-x-4 top-14 block">
+          <span class="block font-display text-lg font-semibold text-white">HyperIsland OS</span>
+          <span class="mt-1 block text-sm leading-snug text-zinc-400">A Dynamic Island for Windows 11, built with Tauri and Rust.</span>
+          <span class="mt-3 block h-1 overflow-hidden rounded-full bg-zinc-800"><span class="block h-full w-2/3 rounded-full bg-emerald-400"></span></span>
+        </span>
+      </button>
+      <p class="mt-3 font-mono text-xs text-zinc-600">Tap the pill. It's the same idea as my main desktop project.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about" class="border-t border-zinc-900">
+  <div class="mx-auto grid max-w-6xl gap-10 px-5 py-20 lg:grid-cols-12">
+    <h2 class="font-display text-3xl font-extrabold tracking-tight text-white sm:text-4xl lg:col-span-4">About me</h2>
+    <div class="space-y-5 text-lg leading-relaxed text-zinc-400 lg:col-span-7 lg:col-start-6">
+      <p>I'm a 19-year-old hands-on developer and tech enthusiast based in Lampung, Indonesia.</p>
+      <p>I care about modern web architectures, performance optimization, and sleek user interfaces built with <span class="text-white">React</span>, <span class="text-white">Next.js</span>, and <span class="text-white">Tailwind CSS</span>. I also create content about tech and the things I build.</p>
+      <dl class="grid grid-cols-3 gap-4 border-t border-zinc-800 pt-6 text-sm">
+        <div><dt class="font-mono text-zinc-600">Age</dt><dd class="mt-1 text-xl font-semibold text-white">19</dd></div>
+        <div><dt class="font-mono text-zinc-600">Based in</dt><dd class="mt-1 text-xl font-semibold text-white">Lampung</dd></div>
+        <div><dt class="font-mono text-zinc-600">Focus</dt><dd class="mt-1 text-xl font-semibold text-white">Frontend</dd></div>
+      </dl>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects" class="border-t border-zinc-900">
+  <div class="mx-auto max-w-6xl px-5 py-20">
+    <div class="mb-10 flex flex-wrap items-end justify-between gap-4">
+      <h2 class="font-display text-3xl font-extrabold tracking-tight text-white sm:text-4xl">Selected projects</h2>
+      <a href="https://github.com/ktzo007" target="_blank" rel="noopener noreferrer" class="rounded text-sm text-zinc-400 underline decoration-zinc-700 underline-offset-4 transition-colors hover:text-emerald-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-400">More on GitHub</a>
+    </div>
+
+    <div class="grid gap-5 md:grid-cols-12">
+      <!-- HyperIsland -->
+      <article class="card group relative overflow-hidden rounded-2xl border border-zinc-800 bg-zinc-900/40 p-6 transition-all duration-300 hover:scale-[1.01] hover:border-emerald-500/40 md:col-span-7 md:row-span-2 md:p-8">
+        <div class="glow pointer-events-none absolute -inset-px rounded-2xl opacity-0 shadow-[inset_0_0_40px_-10px_rgba(16,185,129,.35)] transition-opacity duration-300"></div>
+        <div class="relative mb-8 flex h-44 items-start justify-center rounded-xl border border-zinc-800 bg-zinc-950 pt-4 sm:h-56" aria-hidden="true">
+          <div class="flex h-9 w-28 items-center justify-between rounded-full bg-black px-3 ring-1 ring-zinc-800 transition-all duration-500 group-hover:w-64 group-hover:h-12">
+            <span class="h-2 w-2 rounded-full bg-emerald-400"></span>
+            <span class="font-mono text-[10px] text-zinc-500 opacity-0 transition-opacity duration-300 group-hover:opacity-100">now playing · 02:14</span>
+            <span class="h-2 w-2 rounded-full bg-cyan-400"></span>
+          </div>
+        </div>
+        <h3 class="relative font-display text-2xl font-extrabold text-white">HyperIsland OS</h3>
+        <p class="relative mt-3 max-w-lg leading-relaxed text-zinc-400">A custom lightweight Dynamic Island desktop application for Windows 11 built with Tauri, Rust, React, and Tailwind CSS.</p>
+        <ul class="relative mt-6 flex flex-wrap gap-2" aria-label="Tech stack">
+          <li class="rounded-full border border-zinc-700 bg-zinc-950 px-3 py-1 font-mono text-xs text-zinc-300">Tauri</li>
+          <li class="rounded-full border border-zinc-700 bg-zinc-950 px-3 py-1 font-mono text-xs text-zinc-300">Rust</li>
+          <li class="rounded-full border border-zinc-700 bg-zinc-950 px-3 py-1 font-mono text-xs text-zinc-300">React</li>
+          <li class="rounded-full border border-zinc-700 bg-zinc-950 px-3 py-1 font-mono text-xs text-zinc-300">Tailwind CSS</li>
+          <li class="rounded-full border border-zinc-700 bg-zinc-950 px-3 py-1 font-mono text-xs text-zinc-300">TypeScript</li>
+        </ul>
+      </article>
+
+      <!-- RuangNiaga -->
+      <article class="card group relative overflow-hidden rounded-2xl border border-zinc-800 bg-zinc-900/40 p-6 transition-all duration-300 hover:scale-[1.01] hover:border-cyan-400/40 md:col-span-5 md:p-8">
+        <div class="glow pointer-events-none absolute -inset-px rounded-2xl opacity-0 shadow-[inset_0_0_40px_-10px_rgba(34,211,238,.3)] transition-opacity duration-300"></div>
+        <h3 class="relative font-display text-2xl font-extrabold text-white">RuangNiaga</h3>
+        <p class="relative mt-3 leading-relaxed text-zinc-400">A modern e-commerce marketplace web application designed with an intuitive user experience and seamless product management.</p>
+        <ul class="relative mt-6 flex flex-wrap gap-2" aria-label="Tech stack">
+          <li class="rounded-full border border-zinc-700 bg-zinc-950 px-3 py-1 font-mono text-xs text-zinc-300">React</li>
+          <li class="rounded-full border border-zinc-700 bg-zinc-950 px-3 py-1 font-mono text-xs text-zinc-300">Tailwind CSS</li>
+          <li class="rounded-full border border-zinc-700 bg-zinc-950 px-3 py-1 font-mono text-xs text-zinc-300">JavaScript</li>
+        </ul>
+      </article>
+
+      <!-- Papatong -->
+      <article class="card group relative overflow-hidden rounded-2xl border border-zinc-800 bg-zinc-900/40 p-6 transition-all duration-300 hover:scale-[1.01] hover:border-emerald-500/40 md:col-span-5 md:p-8">
+        <div class="glow pointer-events-none absolute -inset-px rounded-2xl opacity-0 shadow-[inset_0_0_40px_-10px_rgba(16,185,129,.35)] transition-opacity duration-300"></div>
+        <h3 class="relative font-display text-2xl font-extrabold text-white">Resto Warung Papatong</h3>
+        <p class="relative mt-3 leading-relaxed text-zinc-400">Official responsive web application and digital presence for a restaurant in Cibinong, Bogor, featuring modern menus and location info.</p>
+        <ul class="relative mt-6 flex flex-wrap gap-2" aria-label="Tech stack">
+          <li class="rounded-full border border-zinc-700 bg-zinc-950 px-3 py-1 font-mono text-xs text-zinc-300">Next.js</li>
+          <li class="rounded-full border border-zinc-700 bg-zinc-950 px-3 py-1 font-mono text-xs text-zinc-300">Tailwind CSS</li>
+          <li class="rounded-full border border-zinc-700 bg-zinc-950 px-3 py-1 font-mono text-xs text-zinc-300">React</li>
+        </ul>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills" class="border-t border-zinc-900">
+  <div class="mx-auto max-w-6xl px-5 py-20">
+    <h2 class="mb-10 font-display text-3xl font-extrabold tracking-tight text-white sm:text-4xl">Skills</h2>
+    <div class="grid gap-px overflow-hidden rounded-2xl border border-zinc-800 bg-zinc-800 md:grid-cols-3">
+      <div class="bg-zinc-950 p-7 transition-colors duration-300 hover:bg-zinc-900/60">
+        <h3 class="font-display text-xl font-bold text-white">Frontend core</h3>
+        <ul class="mt-5 flex flex-wrap gap-2">
+          <li class="rounded-md bg-zinc-900 px-2.5 py-1.5 font-mono text-xs text-zinc-300 ring-1 ring-zinc-800">React</li>
+          <li class="rounded-md bg-zinc-900 px-2.5 py-1.5 font-mono text-xs text-zinc-300 ring-1 ring-zinc-800">Next.js</li>
+          <li class="rounded-md bg-zinc-900 px-2.5 py-1.5 font-mono text-xs text-zinc-300 ring-1 ring-zinc-800">JavaScript (ES6+)</li>
+          <li class="rounded-md bg-zinc-900 px-2.5 py-1.5 font-mono text-xs text-zinc-300 ring-1 ring-zinc-800">TypeScript</li>
+          <li class="rounded-md bg-zinc-900 px-2.5 py-1.5 font-mono text-xs text-zinc-300 ring-1 ring-zinc-800">HTML5</li>
+          <li class="rounded-md bg-zinc-900 px-2.5 py-1.5 font-mono text-xs text-zinc-300 ring-1 ring-zinc-800">CSS3</li>
+        </ul>
+      </div>
+      <div class="bg-zinc-950 p-7 transition-colors duration-300 hover:bg-zinc-900/60">
+        <h3 class="font-display text-xl font-bold text-white">Styling &amp; UI</h3>
+        <ul class="mt-5 flex flex-wrap gap-2">
+          <li class="rounded-md bg-zinc-900 px-2.5 py-1.5 font-mono text-xs text-zinc-300 ring-1 ring-zinc-800">Tailwind CSS</li>
+          <li class="rounded-md bg-zinc-900 px-2.5 py-1.5 font-mono text-xs text-zinc-300 ring-1 ring-zinc-800">Responsive Design</li>
+          <li class="rounded-md bg-zinc-900 px-2.5 py-1.5 font-mono text-xs text-zinc-300 ring-1 ring-zinc-800">UI/UX Prototyping</li>
+        </ul>
+      </div>
+      <div class="bg-zinc-950 p-7 transition-colors duration-300 hover:bg-zinc-900/60">
+        <h3 class="font-display text-xl font-bold text-white">Tools &amp; workflow</h3>
+        <ul class="mt-5 flex flex-wrap gap-2">
+          <li class="rounded-md bg-zinc-900 px-2.5 py-1.5 font-mono text-xs text-zinc-300 ring-1 ring-zinc-800">Git</li>
+          <li class="rounded-md bg-zinc-900 px-2.5 py-1.5 font-mono text-xs text-zinc-300 ring-1 ring-zinc-800">Tauri</li>
+          <li class="rounded-md bg-zinc-900 px-2.5 py-1.5 font-mono text-xs text-zinc-300 ring-1 ring-zinc-800">Rust (basics)</li>
+          <li class="rounded-md bg-zinc-900 px-2.5 py-1.5 font-mono text-xs text-zinc-300 ring-1 ring-zinc-800">Vite</li>
+          <li class="rounded-md bg-zinc-900 px-2.5 py-1.5 font-mono text-xs text-zinc-300 ring-1 ring-zinc-800">Performance Optimization</li>
+          <li class="rounded-md bg-zinc-900 px-2.5 py-1.5 font-mono text-xs text-zinc-300 ring-1 ring-zinc-800">VS Code</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- JOURNEY -->
+<section id="journey" class="border-t border-zinc-900">
+  <div class="mx-auto grid max-w-6xl gap-10 px-5 py-20 lg:grid-cols-12">
+    <h2 class="font-display text-3xl font-extrabold tracking-tight text-white sm:text-4xl lg:col-span-4">Journey</h2>
+    <ol class="relative space-y-10 border-l border-zinc-800 pl-8 lg:col-span-7 lg:col-start-6">
+      <li class="relative">
+        <span class="absolute -left-[37px] top-1.5 h-2.5 w-2.5 rounded-full bg-zinc-600 ring-4 ring-zinc-950"></span>
+        <h3 class="font-display text-lg font-bold text-white">Web fundamentals</h3>
+        <p class="mt-1 text-zinc-400">Started with HTML5, CSS3, and modern JavaScript, learning by building small pages and breaking things.</p>
+      </li>
+      <li class="relative">
+        <span class="absolute -left-[37px] top-1.5 h-2.5 w-2.5 rounded-full bg-zinc-600 ring-4 ring-zinc-950"></span>
+        <h3 class="font-display text-lg font-bold text-white">React and Tailwind CSS</h3>
+        <p class="mt-1 text-zinc-400">Moved to component-based UIs and utility-first styling, shipping RuangNiaga as a full marketplace interface.</p>
+      </li>
+      <li class="relative">
+        <span class="absolute -left-[37px] top-1.5 h-2.5 w-2.5 rounded-full bg-emerald-400/70 ring-4 ring-zinc-950"></span>
+        <h3 class="font-display text-lg font-bold text-white">Next.js for real clients</h3>
+        <p class="mt-1 text-zinc-400">Built the digital presence of Resto Warung Papatong in Cibinong, Bogor, with responsive menus and location info.</p>
+      </li>
+      <li class="relative">
+        <span class="absolute -left-[37px] top-1.5 h-2.5 w-2.5 rounded-full bg-emerald-400 ring-4 ring-zinc-950 shadow-[0_0_14px_rgba(52,211,153,.8)]"></span>
+        <h3 class="font-display text-lg font-bold text-white">Custom desktop utilities</h3>
+        <p class="mt-1 text-zinc-400">Took frontend skills beyond the browser with Tauri and Rust, creating HyperIsland OS for Windows 11.</p>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="border-t border-zinc-900">
+  <div class="mx-auto max-w-6xl px-5 py-24">
+    <div class="rounded-3xl border border-zinc-800 bg-zinc-900/40 p-8 transition-colors duration-300 hover:border-emerald-500/30 sm:p-14">
+      <h2 class="max-w-2xl font-display text-4xl font-extrabold leading-tight tracking-tight text-white sm:text-5xl">Have a project in mind? Let's build it.</h2>
+      <p class="mt-5 max-w-lg text-lg text-zinc-400">I'm open to freelance work. Send a short brief and I'll reply with next steps.</p>
+      <div class="mt-8 flex flex-wrap gap-3">
+        <a href="mailto:mnaufalazaqi@gmail.com" class="inline-flex items-center rounded-lg bg-emerald-400 px-5 py-3 font-semibold text-zinc-950 transition-all duration-300 hover:bg-emerald-300 hover:shadow-[0_0_30px_-4px_rgba(52,211,153,.6)] focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-300 focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-900 active:scale-95">Email me</a>
+        <button id="copyBtn" type="button" class="inline-flex items-center rounded-lg border border-zinc-700 px-5 py-3 font-mono text-sm text-white transition-all duration-300 hover:border-emerald-400/60 focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-400 active:scale-95">mnaufalazaqi@gmail.com</button>
+        <a href="https://github.com/ktzo007" target="_blank" rel="noopener noreferrer" class="inline-flex items-center rounded-lg border border-zinc-700 px-5 py-3 font-semibold text-white transition-all duration-300 hover:border-emerald-400/60 focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-400 active:scale-95">GitHub</a>
+      </div>
+      <p id="copyMsg" class="mt-4 h-5 font-mono text-xs text-emerald-300" role="status" aria-live="polite"></p>
+    </div>
+  </div>
+</section>
+</main>
+
+<!-- FOOTER -->
+<footer class="border-t border-zinc-900">
+  <div class="mx-auto flex max-w-6xl flex-col items-start justify-between gap-6 px-5 py-10 text-sm text-zinc-500 sm:flex-row sm:items-center">
+    <p>© <span id="year">2026</span> M Naufal Azaqi. All rights reserved.</p>
+    <ul class="flex flex-wrap gap-5">
+      <li><a class="rounded transition-colors hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-400" href="#about">About</a></li>
+      <li><a class="rounded transition-colors hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-400" href="#projects">Projects</a></li>
+      <li><a class="rounded transition-colors hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-400" href="#skills">Skills</a></li>
+      <li><a class="rounded transition-colors hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-400" href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</footer>
+
+<script>
+  (function () {
+    var year = document.getElementById('year');
+    if (year) year.textContent = new Date().getFullYear();
+
+    var btn = document.getElementById('menuBtn'), menu = document.getElementById('mobileMenu');
+    btn.addEventListener('click', function () {
+      var open = menu.classList.toggle('hidden') === false;
+      btn.setAttribute('aria-expanded', String(open));
+    });
+    menu.querySelectorAll('a').forEach(function (a) {
+      a.addEventListener('click', function () { menu.classList.add('hidden'); btn.setAttribute('aria-expanded', 'false'); });
+    });
+
+    var island = document.getElementById('island'), label = document.getElementById('islandLabel');
+    island.addEventListener('click', function () {
+      var open = island.getAttribute('data-open') !== 'true';
+      island.setAttribute('data-open', String(open));
+      island.setAttribute('aria-expanded', String(open));
+      island.style.width = open ? '300px' : '180px';
+      island.style.height = open ? '150px' : '44px';
+      island.style.borderRadius = open ? '28px' : '9999px';
+      label.textContent = open ? 'HyperIsland OS' : 'now building';
+    });
+
+    var copyBtn = document.getElementById('copyBtn'), msg = document.getElementById('copyMsg');
+    copyBtn.addEventListener('click', function () {
+      var email = 'mnaufalazaqi@gmail.com';
+      var done = function (ok) { msg.textContent = ok ? 'Email address copied.' : 'Copy failed. Select the address and copy it manually.'; setTimeout(function () { msg.textContent = ''; }, 2500); };
+      try { navigator.clipboard.writeText(email).then(function () { done(true); }, function () { done(false); }); }
+      catch (e) { done(false); }
+    });
+  })();
+</script>
+</body>
+</html>
